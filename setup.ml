@@ -11,3 +11,16 @@ let setup_stdin () =
 		}
 	in
 	Unix.(tcsetattr stdin TCSANOW attr)
+
+let handle_signal =
+	(* Restore stdin tcattrs and exit *)
+	Sys.Signal_handle ( fun _ ->
+		Unix.(tcsetattr stdin TCSANOW attr_orig); (* Reset attributes *)
+		ANSITerminal.(erase Screen);
+		exit 0
+	)
+
+let setup () =
+	setup_stdin ();
+	Sys.(set_signal sigint handle_signal); (* Catch ctrl-c *)
+	Sys.(set_signal sigterm handle_signal) (* Catch SIGTERM *)
