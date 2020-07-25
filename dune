@@ -2,3 +2,7 @@
 	(name opomodoro)
 	(libraries lwt lwt.unix ANSITerminal)
 )
+(install
+	(section bin)
+	(files (opomodoro.exe as opomodoro))
+)
