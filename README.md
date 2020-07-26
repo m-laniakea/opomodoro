@@ -3,16 +3,24 @@ A simple Pomodoro timer in OCaml.
 
 ![The timer in action](screenshot.jpg)
 
+### Installation via opam
+```bash
+opam install opomodoro
+```
+
 ### Usage:
+Launch with: `opomodoro`
+
 `space`: pause/un-pause\
 `r`: reset\
 `b`: begin break\
 `ctrl-c`: exit
 
-### Running:
+### Development
+#### Running:
 `dune exec ./opomodoro.exe`
 
-### Compiling:
+#### Compiling:
 `dune build @default`
 
 ### Notes:
